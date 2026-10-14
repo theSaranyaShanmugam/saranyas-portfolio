@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Saranya Shanmugam — Data Science and Machine Learning portfolio, featuring graph-based climate research, NLP, and software engineering experience.">
+<meta name="theme-color" content="#101114">
+<meta property="og:title" content="Saranya Shanmugam — Data Science & Machine Learning">
+<meta property="og:description" content="Projects in graph machine learning, climate analytics and natural language processing, supported by software engineering experience.">
+<meta property="og:type" content="website">
+<title>Saranya Shanmugam — Data Science & Machine Learning</title>
+<style>
+:root {
+  color-scheme: light dark;
+  --bg: light-dark(#f6f6f7, #101114);
+  --surface: light-dark(#ffffff, #191a1f);
+  --surface-2: light-dark(#ededf0, #202127);
+  --text: light-dark(#17181c, #f4f4f5);
+  --muted: light-dark(#62636d, #a1a1aa);
+  --border: light-dark(#d9d9df, #35363e);
+  --silver: light-dark(#52545e, #c4c4cc);
+  --max: 1120px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+body { margin: 0; background: var(--bg); color: var(--text); font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; line-height: 1.65; }
+a { color: inherit; text-decoration: none; }
+button, a { -webkit-tap-highlight-color: transparent; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--silver); outline-offset: 4px; }
+.wrap { width: min(var(--max), calc(100% - 48px)); margin: 0 auto; }
+.topbar { position: sticky; top: 0; z-index: 20; border-bottom: 1px solid var(--border); background: light-dark(rgba(246,246,247,.94), rgba(16,17,20,.94)); backdrop-filter: blur(16px); }
+.nav { display:flex; align-items:center; justify-content:space-between; min-height:72px; gap:24px; }
+.brand { display:flex; align-items:center; gap:12px; font-weight:750; letter-spacing:-.04em; }
+.brand-mark { display:grid; place-items:center; width:34px; height:34px; border:1px solid var(--border); border-radius:8px; font-size:12px; letter-spacing:-.06em; }
+.navlinks { display:flex; align-items:center; gap:24px; font-size:13px; color:var(--muted); }
+.navlinks a:hover, .text-link:hover { color:var(--text); }
+.nav-cta { border:1px solid var(--border); border-radius:8px; padding:9px 13px; color:var(--text)!important; }
+.menu-toggle { display:none; border:1px solid var(--border); background:transparent; color:var(--text); padding:8px 11px; border-radius:8px; }
+.hero { padding:104px 0 82px; border-bottom:1px solid var(--border); position:relative; overflow:hidden; }
+.hero:after { content:""; position:absolute; width:420px; height:420px; right:-130px; top:25px; border:1px solid var(--border); border-radius:50%; opacity:.42; box-shadow:0 0 0 42px var(--bg), 0 0 0 43px var(--border), 0 0 0 92px var(--bg), 0 0 0 93px var(--border); pointer-events:none; }
+.hero-grid { display:grid; grid-template-columns:minmax(0,1.35fr) minmax(260px,.65fr); gap:60px; align-items:center; position:relative; z-index:1; }
+.eyebrow, .kicker { color:var(--muted); font-size:11px; letter-spacing:.14em; text-transform:uppercase; font-weight:700; }
+h1 { font-size:clamp(42px, 6vw, 74px); line-height:1.02; letter-spacing:-.065em; margin:20px 0 22px; max-width:800px; }
+.hero p { color:var(--muted); max-width:650px; font-size:17px; }
+.actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:30px; }
+.btn { display:inline-flex; align-items:center; justify-content:center; gap:10px; border:1px solid var(--border); border-radius:9px; padding:12px 16px; font-size:13px; font-weight:650; transition:transform .18s ease, border-color .18s ease, background .18s ease; }
+.btn:hover { transform:translateY(-2px); border-color:var(--silver); }
+.btn-primary { background:var(--text); color:var(--bg); border-color:var(--text); }
+.hero-panel { border:1px solid var(--border); border-radius:14px; background:var(--surface); padding:22px; }
+.panel-top { display:flex; justify-content:space-between; align-items:center; color:var(--muted); font-size:10px; text-transform:uppercase; letter-spacing:.1em; padding-bottom:15px; border-bottom:1px solid var(--border); }
+.node-graphic { display:block; width:100%; height:auto; margin:18px 0 10px; }
+.panel-note { font-size:12px; color:var(--muted); }
+.metrics-strip { display:grid; grid-template-columns:repeat(3,1fr); border-bottom:1px solid var(--border); }
+.strip-item { padding:22px 24px 22px 0; }
+.strip-item + .strip-item { border-left:1px solid var(--border); padding-left:24px; }
+.strip-item strong { display:block; font-size:14px; letter-spacing:-.02em; }
+.strip-item span { display:block; font-size:12px; color:var(--muted); margin-top:4px; }
+section { padding:88px 0; border-bottom:1px solid var(--border); }
+.section-head { display:flex; justify-content:space-between; gap:32px; align-items:end; margin-bottom:34px; }
+.section-head h2 { font-size:clamp(30px,4vw,44px); letter-spacing:-.055em; line-height:1.1; margin:10px 0 0; }
+.section-head p { color:var(--muted); max-width:430px; font-size:14px; margin:0; }
+.project-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; }
+.project-card { border:1px solid var(--border); border-radius:13px; background:var(--surface); overflow:hidden; transition:transform .2s ease,border-color .2s ease; }
+.project-card:hover { transform:translateY(-3px); border-color:var(--silver); }
+.project-card.featured { grid-column:1 / -1; display:grid; grid-template-columns:1.1fr .9fr; }
+.project-art { min-height:230px; background:var(--surface-2); border-bottom:1px solid var(--border); padding:24px; display:flex; align-items:center; justify-content:center; overflow:hidden; }
+.featured .project-art { min-height:100%; border-bottom:0; border-right:1px solid var(--border); }
+.project-content { padding:25px; }
+.project-meta { display:flex; justify-content:space-between; gap:10px; color:var(--muted); font-size:10px; text-transform:uppercase; letter-spacing:.11em; }
+.project-content h3 { font-size:23px; line-height:1.2; letter-spacing:-.04em; margin:16px 0 12px; }
+.project-content p { color:var(--muted); font-size:13px; margin:0 0 17px; }
+.tags { display:flex; flex-wrap:wrap; gap:7px; margin-top:18px; }
+.tag { border:1px solid var(--border); border-radius:6px; padding:5px 8px; font-size:10px; color:var(--muted); }
+.project-foot { margin-top:20px; padding-top:14px; border-top:1px solid var(--border); color:var(--muted); font-size:11px; }
+.graph-svg { width:100%; max-width:520px; height:auto; }
+.flow { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:8px; width:100%; }
+.flow-step { min-height:94px; border:1px solid var(--border); border-radius:8px; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:10px 7px; background:var(--surface); }
+.flow-step b { font-size:11px; line-height:1.3; }
+.flow-step span { font-size:9px; color:var(--muted); margin-top:6px; }
+.skills-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; }
+.skill-card { border:1px solid var(--border); background:var(--surface); border-radius:12px; padding:22px; }
+.skill-card .iconbox { width:36px; height:36px; display:grid; place-items:center; border:1px solid var(--border); border-radius:8px; margin-bottom:20px; color:var(--silver); }
+.skill-card h3 { font-size:15px; margin:0 0 10px; letter-spacing:-.02em; }
+.skill-card p { font-size:12px; color:var(--muted); margin:0; }
+.timeline { border-top:1px solid var(--border); }
+.timeline-item { display:grid; grid-template-columns:200px 1fr; gap:34px; padding:28px 0; border-bottom:1px solid var(--border); }
+.timeline-date { color:var(--muted); font-size:12px; }
+.timeline-item h3 { margin:0 0 5px; font-size:18px; letter-spacing:-.03em; }
+.timeline-item .org { color:var(--muted); font-size:13px; margin-bottom:13px; }
+.timeline-item ul { margin:0; padding-left:18px; color:var(--muted); font-size:13px; }
+.timeline-item li + li { margin-top:6px; }
+.education-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+.edu-card { padding:23px; border:1px solid var(--border); border-radius:12px; background:var(--surface); }
+.edu-card .year { color:var(--muted); font-size:11px; }
+.edu-card h3 { margin:12px 0 5px; font-size:18px; letter-spacing:-.03em; }
+.edu-card p { color:var(--muted); margin:0; font-size:13px; }
+.cert-list { display:flex; flex-wrap:wrap; gap:8px; margin-top:18px; }
+.cert-list span { border:1px solid var(--border); border-radius:7px; padding:8px 10px; font-size:11px; color:var(--muted); }
+.about-grid { display:grid; grid-template-columns:.8fr 1.2fr; gap:60px; }
+.about-grid h2 { font-size:clamp(30px,4vw,42px); line-height:1.1; letter-spacing:-.05em; margin:12px 0; }
+.about-copy p { margin:0 0 16px; color:var(--muted); font-size:14px; }
+.contact-box { display:flex; justify-content:space-between; gap:32px; align-items:center; padding:32px; border:1px solid var(--border); border-radius:14px; background:var(--surface); }
+.contact-box h2 { font-size:clamp(28px,4vw,42px); letter-spacing:-.05em; line-height:1.1; margin:10px 0; }
+.contact-box p { color:var(--muted); font-size:13px; margin:0; }
+footer { padding:25px 0; color:var(--muted); font-size:11px; }
+.footer-inner { display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; }
+.reveal { opacity:0; transform:translateY(12px); transition:opacity .55s ease,transform .55s ease; }
+.reveal.visible { opacity:1; transform:translateY(0); }
+@media (prefers-reduced-motion: reduce) { *,*::before,*::after { scroll-behavior:auto!important; transition:none!important; animation:none!important; } .reveal { opacity:1; transform:none; } }
+@media (max-width: 800px) { .hero-grid { grid-template-columns:1fr; gap:34px; } .hero:after { right:-260px; opacity:.25; } .hero { padding:76px 0 58px; } .project-card.featured { grid-template-columns:1fr; } .featured .project-art { border-right:0; border-bottom:1px solid var(--border); min-height:230px; } .skills-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } .about-grid { grid-template-columns:1fr; gap:20px; } .section-head { align-items:start; flex-direction:column; gap:14px; } }
+@media (max-width: 620px) { .wrap { width:min(var(--max),calc(100% - 32px)); } .nav { min-height:62px; } .menu-toggle { display:block; } .navlinks { display:none; position:absolute; left:0; right:0; top:62px; padding:18px 20px 22px; background:var(--bg); border-bottom:1px solid var(--border); flex-direction:column; align-items:stretch; gap:15px; } .navlinks.open { display:flex; } .nav-cta { text-align:center; } h1 { font-size:clamp(39px,12vw,56px); } .hero p { font-size:15px; } .metrics-strip { grid-template-columns:1fr; } .strip-item, .strip-item + .strip-item { border-left:0; padding:14px 0; } .strip-item + .strip-item { border-top:1px solid var(--border); } section { padding:62px 0; } .project-grid,.skills-grid,.education-grid { grid-template-columns:1fr; } .project-card.featured { grid-column:auto; } .timeline-item { grid-template-columns:1fr; gap:8px; } .contact-box { align-items:flex-start; flex-direction:column; padding:23px; } .flow { grid-template-columns:1fr; } .flow-step { min-height:60px; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap nav">
+    <a class="brand" href="#home" aria-label="Saranya Shanmugam home"><span class="brand-mark">SS.</span><span>Saranya Shanmugam</span></a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="navlinks">Menu</button>
+    <nav class="navlinks" id="navlinks" aria-label="Main navigation">
+      <a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#skills">Skills</a><a href="#about">About</a><a href="#contact" class="nav-cta">Contact ↗</a>
+    </nav>
+  </div>
+</header>
+<main>
+<section class="hero" id="home">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Data science · Machine learning · Engineering</div>
+      <h1>Understanding data.<br>Building useful systems.</h1>
+      <p>I'm an MSc Data Science graduate with a computer engineering background and experience across graph machine learning, natural language processing, software testing and backend data validation.</p>
+      <div class="actions"><a class="btn btn-primary" href="#projects">Explore projects <span>↘</span></a><a class="btn" href="#contact">Get in touch <span>↗</span></a></div>
+    </div>
+    <aside class="hero-panel" aria-label="Graph data visual illustration">
+      <div class="panel-top"><span>Research focus</span><span>01 / 03</span></div>
+      <svg class="node-graphic" viewBox="0 0 320 230" role="img" aria-label="Illustrative graph of connected climate data entities">
+        <g stroke="currentColor" stroke-opacity=".35" stroke-width="1.2" fill="none"><path d="M54 54 L155 42 L253 73 L220 164 L112 184 L54 54 M54 54 L112 184 M155 42 L220 164 M253 73 L112 184 M54 54 L253 73 M155 42 L112 184"/></g>
+        <g fill="var(--surface)" stroke="var(--silver)" stroke-width="1.4"><circle cx="54" cy="54" r="9"/><circle cx="155" cy="42" r="9"/><circle cx="253" cy="73" r="9"/><circle cx="220" cy="164" r="9"/><circle cx="112" cy="184" r="9"/></g>
+        <g fill="currentColor" font-size="9" font-family="monospace"><text x="25" y="37">COUNTRY</text><text x="137" y="22">YEAR</text><text x="235" y="55">OBS.</text><text x="228" y="187">INDICATOR</text><text x="74" y="207">TIME LINK</text></g>
+      </svg>
+    </aside>
+  </div>
+</section>
+<div class="wrap metrics-strip" aria-label="Professional profile highlights">
+  <div class="strip-item"><strong>Graph machine learning</strong><span>Neo4j · Embeddings · Predictive modelling</span></div>
+  <div class="strip-item"><strong>Natural language processing</strong><span>BERT · Text preprocessing</span></div>
+  <div class="strip-item"><strong>Software quality</strong><span>Robot Framework · SQL · Debugging</span></div>
+</div>
+<section id="projects">
+  <div class="wrap">
+    <div class="section-head"><div><div class="kicker">Selected work / 01</div><h2>Projects & research</h2></div><p>Academic and technical projects showing work across connected data, language models and web development.</p></div>
+    <div class="project-grid">
+      <article class="project-card featured reveal">
+        <div class="project-art">
+          <svg class="graph-svg" viewBox="0 0 480 290" role="img" aria-label="Climate graph schema illustration showing country, year, observation and indicator entities">
+            <g stroke="currentColor" stroke-opacity=".38" stroke-width="1.2" fill="none"><path d="M84 76 L230 58 L386 87 L342 206 L188 226 L84 76 M84 76 L188 226 M230 58 L342 206 M386 87 L188 226 M84 76 L386 87 M230 58 L188 226"/></g>
+            <g fill="var(--surface)" stroke="var(--silver)" stroke-width="1.5"><rect x="40" y="58" width="88" height="36" rx="6"/><rect x="188" y="40" width="84" height="36" rx="6"/><rect x="344" y="69" width="84" height="36" rx="6"/><rect x="300" y="188" width="84" height="36" rx="6"/><rect x="146" y="208" width="84" height="36" rx="6"/></g>
+            <g fill="currentColor" font-size="10" font-family="monospace" text-anchor="middle"><text x="84" y="80">COUNTRY</text><text x="230" y="62">YEAR</text><text x="386" y="91">OBSERVATION</text><text x="342" y="210">INDICATOR</text><text x="188" y="230">TIME LINK</text></g>
+            <g fill="currentColor" opacity=".55" font-size="9" font-family="monospace"><text x="16" y="275">SCHEMATIC REPRESENTATION · NOT LIVE DATA</text></g>
+          </svg>
+        </div>
+        <div class="project-content">
+          <div class="project-meta"><span>01 / Featured research</span><span>2025–2026</span></div>
+          <h3>Using Machine Learning on a Graph Database in Support of Climate Change Predictions</h3>
+          <p>Implemented and evaluated a graph-based climate analytics project exploring how Neo4j and graph embeddings can support predictive modelling from historical climate data.</p>
+          <p>The documented workflow covers data preparation, graph construction, embedding generation and predictive evaluation. The project investigated temperature prediction and extreme-weather risk classification against conventional baselines.</p>
+          <div class="tags"><span class="tag">Python</span><span class="tag">Neo4j</span><span class="tag">Cypher</span><span class="tag">Graph Data Science</span><span class="tag">Scikit-learn</span></div>
+          <div class="project-foot">Research project · Heriot-Watt University</div>
+        </div>
+      </article>
+      <article class="project-card reveal">
+        <div class="project-art">
+          <svg viewBox="0 0 360 190" width="100%" style="max-width:360px" role="img" aria-label="Illustrative natural language processing workflow"><g fill="none" stroke="currentColor" stroke-opacity=".35"><rect x="14" y="48" width="90" height="84" rx="8"/><rect x="135" y="48" width="90" height="84" rx="8"/><rect x="256" y="48" width="90" height="84" rx="8"/><path d="M104 90 H135 M225 90 H256" stroke-width="1.5"/></g><g fill="currentColor" font-family="monospace" font-size="11" text-anchor="middle"><text x="59" y="82">ESSAY</text><text x="59" y="100">TEXT</text><text x="180" y="82">BERT</text><text x="180" y="100">MODEL</text><text x="301" y="82">GRADE</text><text x="301" y="100">PREDICTION</text></g></svg>
+        </div>
+        <div class="project-content">
+          <div class="project-meta"><span>02 / NLP</span><span>2024</span></div>
+          <h3>Automated Essay Scoring</h3>
+          <p>Developed an essay scoring system using BERT and NLP to predict grades from linguistic and semantic features, with text preprocessing and model fine-tuning.</p>
+          <div class="tags"><span class="tag">Python</span><span class="tag">BERT</span><span class="tag">NLP</span><span class="tag">Scikit-learn</span></div>
+          <div class="project-foot">Academic project</div>
+        </div>
+      </article>
+      <article class="project-card reveal">
+        <div class="project-art">
+          <svg viewBox="0 0 360 190" width="100%" style="max-width:360px" role="img" aria-label="Illustrative event website wireframe"><g fill="none" stroke="currentColor" stroke-opacity=".4"><rect x="35" y="18" width="290" height="154" rx="8"/><path d="M35 47 H325 M55 65 H190 M55 78 H164 M55 96 H132"/><rect x="215" y="61" width="90" height="63" rx="5"/><rect x="55" y="119" width="76" height="30" rx="5"/><rect x="141" y="119" width="58" height="30" rx="5"/></g><g fill="currentColor" font-family="monospace" font-size="9"><text x="49" y="37">EVENTS / BOOKINGS</text><text x="55" y="136">REGISTER</text><text x="149" y="136">DETAILS</text></g></svg>
+        </div>
+        <div class="project-content">
+          <div class="project-meta"><span>03 / Web development</span><span>2023</span></div>
+          <h3>Event Management System</h3>
+          <p>Designed and developed a responsive event website for browsing, booking and managing events, with JavaScript-based form validation and dynamic interactions.</p>
+          <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span></div>
+          <div class="project-foot">Academic project</div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+<section id="experience">
+  <div class="wrap">
+    <div class="section-head"><div><div class="kicker">Professional background / 02</div><h2>Experience</h2></div><p>Practical experience in software quality, backend validation and collaborative engineering workflows.</p></div>
+    <div class="timeline">
+      <article class="timeline-item reveal">
+        <div class="timeline-date">JUN 2024 — OCT 2024<br>Bengaluru, India</div>
+        <div><h3>Software Development Engineer in Test</h3><div class="org">Practo Technologies Pvt. Ltd.</div><ul><li>Designed, executed and maintained manual and automated test cases using Robot Framework.</li><li>Performed SQL-based backend validation to check data integrity and frontend/backend consistency.</li><li>Tested advertisement and payment-plan features, investigated defects and verified fixes.</li><li>Used Sentry logs and exception reports to support debugging and collaborated with developers in Agile workflows.</li></ul></div>
+      </article>
+    </div>
+  </div>
+</section>
+<section id="skills">
+  <div class="wrap">
+    <div class="section-head"><div><div class="kicker">Technical toolkit / 03</div><h2>Skills & technologies</h2></div></div>
+    <div class="skills-grid">
+      <article class="skill-card reveal"><div class="iconbox">01</div><h3>Programming & data</h3><p>Python, SQL, Java, JavaScript, C++, PHP, Pandas, NumPy</p></article>
+      <article class="skill-card reveal"><div class="iconbox">02</div><h3>Machine learning & NLP</h3><p>Machine learning, Scikit-learn, BERT, natural language processing, Random Forest</p></article>
+      <article class="skill-card reveal"><div class="iconbox">03</div><h3>Graph technologies</h3><p>Neo4j, Graph Data Science, Cypher, Py2neo, FastRP, Node2Vec, GraphSAGE</p></article>
+      <article class="skill-card reveal"><div class="iconbox">04</div><h3>Databases & version control</h3><p>MySQL, Neo4j, Git, GitLab</p></article>
+      <article class="skill-card reveal"><div class="iconbox">05</div><h3>Testing & quality</h3><p>Robot Framework, manual testing, test automation, backend testing, Sentry</p></article>
+      <article class="skill-card reveal"><div class="iconbox">06</div><h3>Analytics & tools</h3><p>Microsoft Azure, Power BI, Excel, Jupyter Notebook, Google Colab, VS Code, MATLAB</p></article>
+    </div>
+  </div>
+</section>
+<section id="education">
+  <div class="wrap">
+    <div class="section-head"><div><div class="kicker">Academic background / 04</div><h2>Education & certifications</h2></div><p>Academic grounding in data science and computer engineering, with additional technical coursework.</p></div>
+    <div class="education-grid">
+      <article class="edu-card reveal"><div class="year">JAN 2025 — JUN 2026</div><h3>MSc Data Science</h3><p>Heriot-Watt University · Edinburgh, United Kingdom</p></article>
+      <article class="edu-card reveal"><div class="year">JUN 2020 — OCT 2024</div><h3>BTech Computer Engineering</h3><p>Presidency University · India</p></article>
+    </div>
+    <div class="cert-list" aria-label="Certifications"><span>SQL — HackerRank</span><span>Machine Learning — SkillUp</span><span>MATLAB Onramp — MathWorks</span><span>Online Privacy — NPTEL</span><span>Cloud Computing — Amazon Web Services</span></div>
+  </div>
+</section>
+<section id="about">
+  <div class="wrap about-grid">
+    <div><div class="kicker">A little context / 05</div><h2>Analytical thinking.<br>Practical engineering.</h2></div>
+    <div class="about-copy"><p>My background combines computer engineering with postgraduate study in data science. Through academic projects, I've explored graph-based climate prediction and NLP, working across data preparation, model development and evaluation.</p><p>At Practo Technologies, I gained industry experience in test automation, SQL-based backend validation and defect investigation alongside development teams.</p><p>I'm interested in data science and machine learning opportunities where careful analysis, sound engineering practices and clear evaluation contribute to useful data-driven solutions.</p><p>Outside my technical work, I've volunteered with DataKirk's AI for All Carnival and supported community initiatives through Rotaract.</p></div>
+  </div>
+</section>
+<section id="contact">
+  <div class="wrap">
+    <div class="contact-box reveal">
+      <div><div class="kicker">Contact / 06</div><h2>Let's talk about data.</h2><p>Open to opportunities in Data Science, Machine Learning, and related fields.</p></div>
+      <div class="actions"><a class="btn btn-primary" href="mailto:Saranyashanmugam202@gmail.com">Email me ↗</a><a class="btn" href="https://www.linkedin.com/in/thesaranyashanmugam/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></div>
+    </div>
+  </div>
+</section>
+</main>
+<footer><div class="wrap footer-inner"><span>© <span id="year">2026</span> Saranya Shanmugam</span><a href="#home" class="text-link">Back to top ↑</a></div></footer>
+<script>
+const menuButton = document.querySelector('.menu-toggle');
+const navLinks = document.querySelector('.navlinks');
+menuButton.addEventListener('click', () => {
+  const expanded = menuButton.getAttribute('aria-expanded') === 'true';
+  menuButton.setAttribute('aria-expanded', String(!expanded));
+  navLinks.classList.toggle('open', !expanded);
+});
+navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+  navLinks.classList.remove('open');
+  menuButton.setAttribute('aria-expanded', 'false');
+}));
+document.getElementById('year').textContent = new Date().getFullYear();
+if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  const observer = new IntersectionObserver(entries => entries.forEach(entry => {
+    if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
+  }), { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+} else {
+  document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+}
+</script>
+</body>
+</html>
